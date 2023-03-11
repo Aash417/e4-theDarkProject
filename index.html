@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Download Image from URL using fetch</title>
+    <style>
+        /* .area { 
+             height: 10cm;
+            background-color: darkgray; 
+
+        }*/
+        .img {
+            height: 475px;
+            width: 250px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+          
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+    <h1>List Image from URL</h1>
+    </p>
+    <input type="text" name="" id="input">
+    <button id="downloadImage"> Run </button>
+    <div class="area">
+        <!-- <div> <img class="img" src="" alt="no image.!"></div> -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+<!-- fetch(url, {
+    mode : 'no-cors',
+  })
+    .then(response => response.blob())
+    .then(blob => {
+    let blobUrl = window.URL.createObjectURL(blob);
+    let a = document.createElement('a');
+    a.download = url.replace(/^.*[\\\/]/, '');
+    a.href = blobUrl;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }) -->
