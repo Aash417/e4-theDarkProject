@@ -1,4 +1,4 @@
-const x = 20;
+let x;
 let str = '';
 let linksArr = [];
 document.querySelector('#downloadImage').addEventListener('click', () => {
@@ -11,6 +11,7 @@ document.querySelector('#downloadImage').addEventListener('click', () => {
 function extractLink(link) {
   const originalLink = link;
   const imageCount = originalLink.slice(-8, -4);
+  x = imageCount;
   //   console.log('total images : ' + imageCount);
   for (let i = 1; i < x + 1; i++) {
     if (i < 10) {
@@ -49,3 +50,5 @@ const generateMarkup = function (image) {
           </div>`;
   area.insertAdjacentHTML('beforeend', markup);
 };
+
+function navigate() {}
