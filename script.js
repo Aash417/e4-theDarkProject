@@ -1,14 +1,6 @@
-// https://fapello.com/content/a/l/alina-becker/6000/alina-becker_5146.jpg
-// https://fapello.com/content/h/a/hana-bunny/4000/hana-bunny_3057.jpg
-// https://fapello.com/content/b/r/brookie-little/1000/brookie-little_0749.jpg
 const x = 20;
 let str = '';
 let linksArr = [];
-//   'https://fapello.com/content/h/a/hana-bunny/4000/hana-bunny_3057.jpg';
-// const btn = document.querySelector('#downloadImage');
-// btn.addEventListener('click', ()=>{
-//     console.log(link);
-// });
 document.querySelector('#downloadImage').addEventListener('click', () => {
   let link = document.querySelector('#input');
   if (!link.value) return console.log('enter something');
@@ -44,26 +36,8 @@ function extractLink(link) {
     linksArr.push(newLink);
   }
 }
-/*
-  function downloadImage(url, name, count) {
-    fetch(url)
-      .then(resp => {
-        // console.log(resp);
-        return resp.blob();
-      })
-      .then(blobobject => {
-        const blob = window.URL.createObjectURL(blobobject);
-        const anchor = document.createElement('a');
-        anchor.style.display = 'none';
-        anchor.href = blob;
-        anchor.download = `${name}${count}.png`;
-        document.body.appendChild(anchor);
-        anchor.click();
-        window.URL.revokeObjectURL(blob);
-      });
-  }*/
 function run() {
-  linksArr.forEach((e) => {
+  linksArr.forEach(e => {
     generateMarkup(e);
   });
 }
@@ -75,4 +49,3 @@ const generateMarkup = function (image) {
           </div>`;
   area.insertAdjacentHTML('beforeend', markup);
 };
-
