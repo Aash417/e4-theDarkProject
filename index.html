@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <title>Download Image from URL using fetch</title>
+    <title>Show Image from URL </title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,30 +13,25 @@
     <p>
     <h1>List Image from URL</h1>
     </p>
-    <input type="text" name="" id="input">
-    <button id="downloadImage"> Run </button>
+    <div>
+        <input type="text" name="" id="input">
+        <select name="opt" id="selectRangeOfImage">
+            <option value="">select range</option>
+            <option value="1">1-10</option>
+            <option value="2">11-20</option>
+        </select>
+        <button id="downloadImage"> Run </button>
+
+    </div>
     <div class="area">
         <!-- <div> <img class="img" src="" alt="no image.!"></div> -->
     </div>
-    <div>
+
+    <!-- <div>
         <button class='pagePrev'>prev</button>
         <button class='pageNext'>next</button>
-    </div>
+    </div> -->
     <script src="script.js"></script>
 </body>
 
 </html>
-
-<!-- fetch(url, {
-    mode : 'no-cors',
-  })
-    .then(response => response.blob())
-    .then(blob => {
-    let blobUrl = window.URL.createObjectURL(blob);
-    let a = document.createElement('a');
-    a.download = url.replace(/^.*[\\\/]/, '');
-    a.href = blobUrl;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-  }) -->

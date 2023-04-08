@@ -1,25 +1,55 @@
 let x,
+  i,
   str = '',
   linksArr = [];
 
+let totalImg=9;
 
-// performing action on button click event 
+// performing action on button click event
 document.querySelector('#downloadImage').addEventListener('click', () => {
   let link = document.querySelector('#input');
+  showFromRange();
+
   if (!link.value) return console.log('enter something');
   extractLink(link.value);
   run();
   link.value = '';
 });
 
+// Range selection function
+function showFromRange() {
+  let range = document.getElementById('selectRangeOfImage').value;
+  console.log(range);
+
+  switch (range) {
+    case '1':
+      i = 1;
+      x = 10;
+    //   totalImg=5;
+      console.log(totalImg);
+      break;
+
+    case '2':
+      i = 11;
+      x = 20;
+      break;
+
+    default:
+      i = 1;
+      x = totalImg;
+      break;
+  }
+}
 
 // funtion to take raw link and extract the required url to display
 function extractLink(link) {
   const originalLink = link;
-  const imageCount = originalLink.slice(-8, -4);
-  x = imageCount;
-  //   console.log('total images : ' + imageCount);
-  for (let i = 1; i < x + 1; i++) {
+  let imageCount = originalLink.slice(-8, -4);
+  console.log(imageCount);
+
+  //   x = imageCount;
+
+  for (i; i <= x; i++) {
     if (i < 10) {
       str = `000${i}`;
     } else if (i < 100) {
@@ -44,7 +74,7 @@ function extractLink(link) {
   }
 }
 
-// function to generate markup for the each element of the array 
+// function to generate markup for the each element of the array
 function run() {
   linksArr.forEach(e => {
     generateMarkup(e);
@@ -53,7 +83,6 @@ function run() {
 
 // funtion to generate markup on webpage
 const generateMarkup = function (image) {
-
   const area = document.querySelector('.area');
   const markup = `
     <div>
