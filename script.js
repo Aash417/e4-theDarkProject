@@ -8,6 +8,7 @@ let totalImg;
 // performing action on button click event
 document.querySelector('#downloadImage').addEventListener('click', () => {
   let link = document.querySelector('#input');
+  countTotalImage(link.value);
   showFromRange();
 
   if (!link.value) return console.log('enter something');
@@ -19,34 +20,60 @@ document.querySelector('#downloadImage').addEventListener('click', () => {
 // Range selection function
 function showFromRange() {
   let range = document.getElementById('selectRangeOfImage').value;
-  console.log(range);
 
   switch (range) {
     case '1':
       i = 1;
-      x = 10;
-      //   totalImg=5;
-      console.log(totalImg);
+      x = 1000;
       break;
 
     case '2':
-      i = 11;
-      x = 20;
+      i = 1000;
+      x = 2000;
+      break;
+
+    case '3':
+      i = 2000;
+      x = 3000;
+      break;
+
+    case '4':
+      i = 3000;
+      x = 4000;
+      break;
+
+    case '5':
+      i = 4000;
+      x = 5000;
+      break;
+
+    case '6':
+      i = 5000;
+      x = 6000;
+      break;
+
+    case '7':
+      i = 6000;
+      x = 7000;
       break;
 
     default:
       i = 1;
       x = totalImg;
+      console.log(x);
       break;
   }
+}
+
+// count total image function
+function countTotalImage(link) {
+  totalImg = link.slice(-8, -4);
 }
 
 // funtion to take raw link and extract the required url to display
 function extractLink(link) {
   const originalLink = link;
   let imageCount = originalLink.slice(-8, -4);
-  console.log(imageCount);
-
   //   x = imageCount;
 
   for (i; i <= x; i++) {
