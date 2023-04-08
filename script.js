@@ -1,6 +1,9 @@
-let x;
-let str = '';
-let linksArr = [];
+let x,
+  str = '',
+  linksArr = [];
+
+
+// performing action on button click event 
 document.querySelector('#downloadImage').addEventListener('click', () => {
   let link = document.querySelector('#input');
   if (!link.value) return console.log('enter something');
@@ -8,6 +11,9 @@ document.querySelector('#downloadImage').addEventListener('click', () => {
   run();
   link.value = '';
 });
+
+
+// funtion to take raw link and extract the required url to display
 function extractLink(link) {
   const originalLink = link;
   const imageCount = originalLink.slice(-8, -4);
@@ -37,12 +43,17 @@ function extractLink(link) {
     linksArr.push(newLink);
   }
 }
+
+// function to generate markup for the each element of the array 
 function run() {
   linksArr.forEach(e => {
     generateMarkup(e);
   });
 }
+
+// funtion to generate markup on webpage
 const generateMarkup = function (image) {
+
   const area = document.querySelector('.area');
   const markup = `
     <div>
@@ -50,5 +61,3 @@ const generateMarkup = function (image) {
           </div>`;
   area.insertAdjacentHTML('beforeend', markup);
 };
-
-function navigate() {}
