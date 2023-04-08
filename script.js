@@ -3,7 +3,7 @@ let x,
   str = '',
   linksArr = [];
 
-let totalImg=9;
+let totalImg;
 
 // performing action on button click event
 document.querySelector('#downloadImage').addEventListener('click', () => {
@@ -25,7 +25,7 @@ function showFromRange() {
     case '1':
       i = 1;
       x = 10;
-    //   totalImg=5;
+      //   totalImg=5;
       console.log(totalImg);
       break;
 
