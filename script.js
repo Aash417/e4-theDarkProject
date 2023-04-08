@@ -1,19 +1,27 @@
-let x;
+let totalImageToDisplay = 10;
 let str = '';
 let linksArr = [];
+let i;
+let startImageFrom = 1;
+const area = document.querySelector('.area');
+let link = document.querySelector('#input');
+
 document.querySelector('#downloadImage').addEventListener('click', () => {
-  let link = document.querySelector('#input');
+  //   link.value = '';
+  showImages();
+});
+
+function showImages() {
   if (!link.value) return console.log('enter something');
   extractLink(link.value);
   run();
-  link.value = '';
-});
+}
 function extractLink(link) {
   const originalLink = link;
   const imageCount = originalLink.slice(-8, -4);
-  x = imageCount;
+  //   totalImageToDisplay = imageCount;
   //   console.log('total images : ' + imageCount);
-  for (let i = 1; i < x + 1; i++) {
+  for (i = startImageFrom; i <= totalImageToDisplay; i++) {
     if (i < 10) {
       str = `000${i}`;
     } else if (i < 100) {
@@ -35,6 +43,7 @@ function extractLink(link) {
     tempArr[7] = `${a}`;
     const newLink = tempArr.join('/');
     linksArr.push(newLink);
+    console.log(i);
   }
 }
 function run() {
@@ -42,8 +51,8 @@ function run() {
     generateMarkup(e);
   });
 }
+
 const generateMarkup = function (image) {
-  const area = document.querySelector('.area');
   const markup = `
     <div>
            <img class="img" src="${image}" alt="no image.!">
@@ -51,4 +60,13 @@ const generateMarkup = function (image) {
   area.insertAdjacentHTML('beforeend', markup);
 };
 
-function navigate() {}
+document.querySelector('.pageNext').addEventListener('click', function (e) {
+  e.preventDefault();
+  document.querySelectorAll('.img').forEach(e => e.remove());
+  //   document.querySelectorAll('.img').forEach(e => area.removeChild(e));
+
+  startImageFrom = totalImageToDisplay + 1;
+  totalImageToDisplay += 10;
+  console.log(startImageFrom, totalImageToDisplay);
+    showImages();
+});
